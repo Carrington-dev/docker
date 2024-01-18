@@ -120,3 +120,21 @@ __rm to running containers will give you an error__
 docker rm <container-id>
 docker rm <container-id> <...id2> <id3>
 ```
+
+## Differences between Containers and Virtual Machines
+
+1. They both have resource allocation and allocation benefits but the memory allocation for VMs is static where for containers it's static
+
+2. Containers virtualizes operating systems where as VMs virtualizes hardware
+
+3. Containers are more portable (1 creation multiple execution on different machines)
+
+4. Containers are just processes
+
+5. Contianers are limited to resources they can access
+
+6. Containers can be killed on exit
+
+
+## Execute a container with user supplied arguments
+

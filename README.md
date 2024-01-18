@@ -71,8 +71,12 @@ docker search <image-name>
 
 ## To start existing images 
 This will start only existing stopped images
-```docker re <image-name or id>```
+```bash
+docker start <image-name or id>
+```
 
 ## To restart existing images 
 This will restart only existing stopped or running images
-```docker restart <image-name or id>```
+```bash
+docker restart <image-name or id>
+```

@@ -180,5 +180,61 @@ __this works when launching only__
 ```bash
 docker exec -it <image-name or id> touch /tmp/carrie
 docker exec -it <image-name or id> /bin/bash
-docker exec -it mysql_name mysql -uroot -p
+# docker run -it --name mysql_name -e MYSQL_ROOT_PASSWORD=#Mulalo96 mysql -uroot -p
+docker run -it --name mysql_client -e MYSQL_ROOT_PASSWORD=#Mulalo96 mysql
+```
+
+## To stop all containers
+
+```
+docker stop $(docker ps -a -q)
+
+```
+## To remove all containers
+
+```bash
+docker rm $(docker ps -a -q)
+docker container prune # all stopped containers
+docker image prune # not tagged latest
+
+```
+
+## Useful commands for Docker
+Before I leave you, I have prepared a list of commands that may be useful to you on Docker.
+
+### List your images.
+```bash
+docker image ls
+```
+### Delete a specific image.
+```bash
+docker image rm [image name]
+```
+### Delete all existing images.
+```
+docker image rm $(docker images -a -q)
+```
+### List all existing containers (running and not running).
+```bash
+docker ps -a
+```
+### Stop a specific container.
+```bash
+docker stop [container name]
+```
+### Stop all running containers.
+```bash
+docker stop $(docker ps -a -q)
+```
+### Delete a specific container (only if stopped).
+```bash
+docker rm [container name]
+```
+### Delete all containers (only if stopped).
+```bash
+docker rm $(docker ps -a -q)
+```
+### Display logs of a container.
+```bash
+docker logs [container name]
 ```

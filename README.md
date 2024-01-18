@@ -138,3 +138,47 @@ docker rm <container-id> <...id2> <id3>
 
 ## Execute a container with user supplied arguments
 
+```bash
+docker run --name custom-mysql -e MYSQL_ROOT_PASSWORD=#Mulalo96 -d mysql
+```
+
+## Docker Monitoring
+
+### Resource Consuption Stats
+
+```bash 
+docker stats <container_name or container_id>
+```
+### Get detail information about a container (running)
+
+Get a detailed information about docker container when running
+```bash 
+docker inspect <container_name or container_id>
+```
+
+## Execute the container in interactive mode
+
+```bash
+docker run -it <image_name> <commands>
+```
+
+-   using -i: means it will keep the stdin open if not attached
+-   using -t: Allow a pseudo-TTY terminal open
+
+examples 
+```bash
+docker run -it nginx /bin/bash # to access the terminal of the container
+docker run -it nginx ls
+docker run -it nginx pwd
+```
+
+__this works when launching only__
+
+
+## Execute the bash commands on container that is already created
+
+```bash
+docker exec -it <image-name or id> touch /tmp/carrie
+docker exec -it <image-name or id> /bin/bash
+docker exec -it mysql_name mysql -uroot -p
+```

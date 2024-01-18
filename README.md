@@ -80,3 +80,43 @@ This will restart only existing stopped or running images
 ```bash
 docker restart <image-name or id>
 ```
+## Defining a static container name
+
+When running a container using `docker run` without providing a name for the container,dcker will create an assign a default name to that container `of some famous scientists` however if you want to assign a name for a container use '--name <name-you-want>'
+
+e.g
+
+```bash
+docker run -p -d 8000:80 --name <name-you-want> nginx
+docker run -p -d 8000:80 --name web_server nginx
+```
+
+To see the result of this use 
+
+```bash
+docker ps
+docker ps -a
+```
+
+## To see problems or logs on a container
+
+```bash
+docker logs <container name>
+```
+## To see processes in a container
+
+```bash
+docker top <container-name> or < container-id>
+```
+also try this for all
+```bash
+ps -ef | grep <container-name>
+ps -ef | grep nginx
+```
+
+## To remove or delete a container
+__rm to running containers will give you an error__
+```bash
+docker rm <container-id>
+docker rm <container-id> <...id2> <id3>
+```

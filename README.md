@@ -379,3 +379,90 @@ __Note: When pull docker images it compares the similar available downloaded ima
 docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]
 ```
 
+This way we can tag images local
+```bash
+docker tag wordpress:2.3.1 my_word_press:4.5.1
+```
+## Docker Image Uploading
+
+hub.docker.com
+```bash
+docker login
+```
+
+to push follow this method
+
+```
+docker image push <username>/<image_name>
+```
+
+## Dockerfile
+
+-   Docker automatically builds images by reading the Dockerfile 
+-   A dockerfile is document that contains all instructions needed to create an image
+-   A dockerfile may contain read-only layers each of which represents a docker instruction
+-   Command to build an image from dockerfile
+```bash
+docker build -f <path_of_file>
+```
+
+### Dockerfile Instructions
+A set of instructions in dockerfile
+#### FROM
+```bash
+FROM
+
+```
+#### LABEL
+
+-   Used to give license to the user
+-   Used to add information about the image
+
+```Dockerfile
+LABEL user="Carrington <from@stemgon.co.za>"
+
+```
+#### RUN
+-   RUN will execute a new layer on top of the basic command
+
+```Dockerfile
+RUN apt-get update
+
+```
+#### CMD
+```Dockerfile
+# Used to run instruction contained by the image along with it's arguementa
+CMD ['<instrion>', <arguments-1>, <second-arguments>]
+
+```
+
+__There can only one CMD instruction in the file__
+
+CMD is usually the last instruction in the Dockerfile
+
+#### EXPOSE
+
+Used to expose any PORT
+
+```Dockerfile
+# Used to run instruction contained by the image along with it's arguementa
+EXPOSE <PORT>
+```
+#### ENV
+
+ENV sets environment variables to their values
+
+#### ADD
+add files to a specific directory in the image
+
+```Dockerfile
+# Used to run instruction contained by the image along with it's arguementa
+ADD /home/* /home/destination/
+```
+#### VOLUME
+a
+
+
+#### WORKDIR
+
+

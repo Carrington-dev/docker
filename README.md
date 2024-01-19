@@ -278,9 +278,14 @@ docker inspect <container_id> -f {{ .key.value }}
 
 ## Docker Network CLI Commands
 
-to see all networks are available
+1.  to see all networks are available
 ```bash
 docker network ls
+```
+2. to create a network
+
+```
+dcoker network create my_bridge_net
 ```
 
 ## To filter networks
@@ -305,4 +310,72 @@ docker network --help
 ## Docker DNS (Domain Name System)
 
 DNS is a system in which domains to thier respective ip addresses
+
+Dontainers use DNS to communicate
+
+__can add network to container when run using --network <network_name>__
+
+check if containers in the same network are connected
+
+```bash
+
+docker run -it <container1> ping <container_2>
+
+```
+
+# Docker images
+
+A combination of file systems, and parameters. Images contain dependencies and binaries needed to run or xecute the application.
+
+Images contain the data which is required to execute the containers.
+
+## List images
+
+```bash
+docker images
+```
+
+Alphine is the base image which you can create as your base image.
+
+### Docker Central Repository
+
+dockerhub a place where you can find all images
+
+
+### To download images
+
+```
+docker pull <image_name>
+```
+
+to pull by specific tag
+
+```
+docker pull <image_name>:<tag>
+```
+
+## Docker Image Layers
+
+- Each image consists of a series of layers. Docker makes use of union file systems to combine these layers into one image.
+
+- Union file systems all files and directories of seperate file systems known as branches
+
+- to see the image layers downloaded
+
+```
+docker history mysql:<tag>
+```
+
+Each step when building a Dockerfile is a layer
+
+__Note: When pull docker images it compares the similar available downloaded images with the one you are looking for and only updates the new layer.__
+
+## Docker Image Tagging
+- Docker tags are tags which you associate which your image
+- They are basically the versions of your images
+- tags are added during building of images
+- tags this way
+```bash
+docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]
+```
 

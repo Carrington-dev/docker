@@ -2,6 +2,8 @@
 
 Docker is a containerized way of running different application with the same or different packages, tooks, source code without affecting one another in a same pc, instance or hypervisor. The docker run time will be the same for all of these docker images provided they are running on the same pc.
 
+# Docker basics
+
 ## Running the docker image
 This is the first way to run a docker image
 ```bash
@@ -238,3 +240,69 @@ docker rm $(docker ps -a -q)
 ```bash
 docker logs [container name]
 ```
+
+# Docker networks
+
+if you want to connect two instances/containers to run on the same network interface then this is the way.
+
+Networks connects a container to another container and two containers to a host machine
+
+## Bridge Network
+
+By default all docker containers are connected to the bridge network which is th default network created by the runtime envrionment. All containers in the bridge network communicate with each other using ip-addresses.Containers on different host machine cannot communicate with each other without additional configuration
+
+## Overlay Network
+
+This model enables communication between containers from two or more different host machines. Technlogies like VXLAN or IPSec are often used to create virtual machines that span multiple hosts.
+
+## Container Network Interfaces 
+
+CNI is a specification that defines how a container runtime interacts with networking plugins. it allows different container runtimes to be combined with various networking solutions.
+
+## To find port of a container
+
+```
+docker port <contianer_id>
+docker port <contianer_name>
+```
+
+## Find docker container ip
+
+```
+docker inspect <contianer_id or name>
+```
+filter one item
+```bash
+docker inspect <container_id> -f {{ .key.value }}
+```
+
+## Docker Network CLI Commands
+
+to see all networks are available
+```bash
+docker network ls
+```
+
+## To filter networks
+
+To filter networks in the bridge
+```bash
+docker network -f drive=bridge
+
+```
+
+To finds all networks ids and drivers
+
+```bash
+docker network ls -f "{{ .ID }}: {{ .Driver }}"
+```
+
+Try 
+```bash
+docker network --help
+```
+
+## Docker DNS (Domain Name System)
+
+DNS is a system in which domains to thier respective ip addresses
+

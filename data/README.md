@@ -73,7 +73,7 @@ docker run -d --name mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -v mysql_db:/var/li
 ### Starting nginx with bind mounds
 
 ```
-docker container run -d --name nginx --mount type=bind source=$(pwd),target=/app nginx
+docker container run -d --name nginx --mount type=bind,source=$(pwd),target=/app nginx
 ```
 
 You can test it by checking your desktop file system and your app file system

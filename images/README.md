@@ -153,4 +153,8 @@ docker build -t <image_name>:<tage> dir
 <!-- -t = tags -->
 ```
 
-## 
+## To delete images
+
+```
+docker image prune -a
+```

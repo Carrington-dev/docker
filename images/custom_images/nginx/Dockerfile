@@ -5,7 +5,7 @@ LABEL mantainer="images@stemgon.co.za"
 
 RUN apt-get update && apt-get upgrade -y
 
-RUN apt-get nginx -y
+RUN apt-get install nginx -y
 
 EXPOSE 80
 

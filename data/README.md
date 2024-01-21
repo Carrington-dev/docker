@@ -15,10 +15,46 @@ docker volume ps -a
 docker volume ls -a
 ```
 
+1. To remove volumes
+
+```bash
+docker volume prune -a
+```
+
 You can also inspect the data volume using the commands below
 
 ```bash
 docker volume inspect <volume-id>
+```
+### Named Volumes
+
+```bash
+docker container run -it  -e MYSQL_ALLOW_EMPTY_PASSWORD=yes --mount source=mysql_db,target=/var/lib/mysql --name mysql mysql
+```
+-   Meaning of the above code
+
+    *   source will be the name of the volume
+    *   to see all volumes
+        	```bash
+            ls /var/lib/docker/volumes
+            ```
+    *   you can create a volume seprately
+
+### Seprate volume creation
+-   to create a volume
+```bash
+docker volume create <volume-name>
+```
+-   to delete a volume
+```bash
+docker volume rm <volume-name>
+```
+
+### Another way to create a volume
+
+```bash
+
+docker run -d --name mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -v mysql_db:/var/lib/mysql mysql
 ```
 
 ## Data Mount
@@ -40,4 +76,11 @@ docker volume inspect <volume-id>
 docker container run -d --name nginx --mount type=bind source=$(pwd),target=/app nginx
 ```
 
-You can test it by checking your desktop file system andyour app file system
+You can test it by checking your desktop file system and your app file system
+
+
+## Assignments
+### Assignment 1
+### Assignment 2
+
+## Volumes

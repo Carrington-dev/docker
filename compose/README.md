@@ -13,12 +13,76 @@ Maps
 
 ### To build 
 
-```docker-compose build```
+```bash
+docker-compose build
+```
 ### To execute 
 
-```docker-compose up```
+```bash
+docker-compose up
+```
 ### To terminate 
 
-```docker-compose down```
+```bash
+docker-compose down
+```
 
-## Key Concepts
+## Key Concepts of a docker-compose.yml file
+
+1. Version
+2. Services
+    - Each service has a parameter called name
+
+```docker-compose
+
+services:
+    web:
+        image: nginx:latest
+        ports:
+            - "80:80"
+
+```
+3. Volumes
+    - allows you to define your volume and bind mount for persistant data
+
+```docker-compose
+
+volumes:
+    data-volume:
+
+```
+
+4. Networks
+- Can define custom networks ad connect them to the instance
+
+```
+networks:
+    custom-network:
+
+```
+
+5. Environmental variables
+
+You can set the environment keys for your services
+
+
+```
+environment:
+    - MODE_ENV=production
+
+```
+This is a list
+
+6. Ports
+
+```
+ports:
+    - "80:80"
+```
+
+7. Command
+
+
+```compose
+command: npm start
+```

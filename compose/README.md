@@ -86,3 +86,16 @@ ports:
 ```compose
 command: npm start
 ```
+
+## Building docker images
+
+### Workflow of building images in docker-compose
+
+__Docker workflow__
+
+Docker file -> Docker build command -> Docker image
+
+__Build images in docker-compose workflow__
+
+- ``docker-compose build``
+- ``docker compose build``

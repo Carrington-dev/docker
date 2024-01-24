@@ -1,0 +1,38 @@
+version: "3"
+
+services:
+  db:
+    image: mysql:5.7
+    container: mysql_database
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD: #Mulalo96
+      - MYSQL_DATABASE: vroomhive
+      - MYSQL_USER: root
+      - MYSQL_PASSWORD: #Mulalo96
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - wordpress_networks
+    ports:
+      - "3306:3306"
+
+
+
+  wordpress:
+    depends_on:
+      - db
+    image: wordpress
+    container: wordpress_server
+    environment:
+      - WORDPRESS_DB_USER=root
+      - WORDPRESS_DB_PASSWORD=#Mulalo96
+      - WORDPRESS_DB_NAME=vroomhive
+    volumes:
+      - wordpress_data:/var/www/html
+    networks:
+      - wordpress_networks
+    ports:
+      - "8000:8000"
+      
+

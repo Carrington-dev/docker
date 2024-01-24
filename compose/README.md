@@ -87,15 +87,72 @@ ports:
 command: npm start
 ```
 
-## Building docker images
+8. Building docker images
 
-### Workflow of building images in docker-compose
+- Workflow of building images in docker-compose
 
-__Docker workflow__
+- __Docker workflow__
 
 Docker file -> Docker build command -> Docker image
 
-__Build images in docker-compose workflow__
+- __Build images in docker-compose workflow__
 
-- ``docker-compose build``
-- ``docker compose build``
+    - ``docker-compose build``
+    - ``docker compose build``
+
+
+- Docker-compose build properties
+- build/context: defines the path or git location where your docker is located
+
+```
+build:
+    context: ./dir
+```
+```
+services:
+    webapp:
+        build: <git-url>
+```
+
+10. Image
+
+    - This overides the dockerfile name e.g 
+    ```
+    services:
+        webapp:
+            build:
+                context: .
+                dockerfile: Dockerfile.dev
+            image: custom-image-name:tag
+    ```
+
+11. Dockerfile
+    - it specifiles the alternative dockerfile to build
+
+12. args
+    - Passes the build arguments to the build context at runtime. Using for dynamically setting the env_values during build
+
+    ```
+    ARG GIT_COMMIT
+    RUN echo "This is my git url ${GIT_COMMIT}"
+    ```
+
+    ```
+    build:
+        context: .
+        args: 
+            GIT_COMMIT: hfhtkslf-df
+    ```
+
+    it may also look like this
+
+    ```
+     build:
+        context: .
+        args: 
+           - GIT_COMMIT: hfhtkslf-df
+    ```
+
+13. Tags
+    - it defines the set of tags you want to associate with your builds
+    

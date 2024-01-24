@@ -24,7 +24,7 @@ docker swarm init
 docker swarm join-token manager
 docker swarm join-token worker
 ```
-## Docker Servic
+## Docker Service
 ### To create a service
 
 Services are basically containers running
@@ -99,3 +99,18 @@ docker node update --label-rm name a6fjtk5
 docker node inspect a6fjtk5
 ```
 
+## What happens if you you disconnect or switch off the manager node?
+
+1. If you disconnect the manager the other node with many votes becomes the manager but the other disconnected manager can not join back if you switch it on.
+2. The containers in a service will be redistributed according to the nodes lefts
+
+## ps/ls commands
+
+__Note that there are two confusing functions of note which are__
+
+```bash
+docker node ps
+docker node ls
+```
+1. ls returns list of nodes in the swarm
+2. ps returns list of containers in the node

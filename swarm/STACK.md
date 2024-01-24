@@ -15,3 +15,12 @@
 ```bash
 docker stack deploy -c docker-compose.yml visualizer_name
 ```
+
+## Initializer Docker Swarm
+
+```bash
+docker info # to see if docker swarm is active
+docker swarm init
+docker swarm join-token manager
+docker swarm join-token worker
+```

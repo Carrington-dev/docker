@@ -24,3 +24,78 @@ docker swarm init
 docker swarm join-token manager
 docker swarm join-token worker
 ```
+## Docker Servic
+### To create a service
+
+Services are basically containers running
+```bash
+docker service create <name>
+```
+### To rm a service
+
+Services are basically containers running
+```bash
+docker service rm <service_id>
+```
+### To list all service
+
+Services are basically containers running
+```bash
+docker service ls
+```
+### To list all containers in a servie
+
+Services are basically containers running
+```bash
+docker service ls <service_id>
+```
+
+## Node
+### Remove node from swarm
+
+If it's not going down
+```bash
+docker node rm <node_id> --force
+docker swarm leave # execute from the instance that has to leave
+```
+
+### Docker node promotion
+
+1. To promote a node first find its id
+```bash
+docker node ls
+```
+2. Then use the id within the following command
+
+```bash
+docker node promote <node_id>
+```
+
+### To demote a node
+
+1. To demote a node first find its id
+```bash
+docker node ls
+```
+2. Then use the id within the following command
+
+```bash
+docker node demote <node_id>
+```
+
+### Add/remove label to the node
+
+1. To add node
+```bash
+docker node update --label-add <key>=<value> <node_id>
+docker node update --label-add name=Carrington a6fjtk5
+docker node inspect a6fjtk5
+```
+
+2. To remove node
+```bash
+docker node update --label-rm <key> <node_id>
+docker node update --label-rm name a6fjtk5
+docker node inspect a6fjtk5
+```
+

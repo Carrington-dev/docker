@@ -8,9 +8,11 @@ RUN apt-get upgrade -y
 
 WORKDIR app/
 
+ENV DJANGO_DB $DJANGO_DB
+
 COPY . .
 
-RUN pip3 install -r requirements.txt
+RUN pip3 install -r requirements.txt --no cache
 
 RUN python3 manage.py makemigrations
 RUN python3 manage.py migrate

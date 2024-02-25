@@ -90,3 +90,4 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 DJANGO_DB = config("DJANGO_DB")
+DJANGO_USER = config("DJANGO_USER")

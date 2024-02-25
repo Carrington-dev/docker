@@ -52,11 +52,24 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'webapp.wsgi.application'
 
-
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+
+"""
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': config("DB_NAME"),
+        'USER': config("DB_USER"),
+        'PASSWORD': config("DB_PASSWORD"),
+        'HOST':config("DB_HOST"),
+        'PORT':config("DB_PORT"),
     }
 }
 
@@ -89,5 +102,5 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-DJANGO_DB = config("DJANGO_DB")
-DJANGO_USER = config("DJANGO_USER")
+DJANGO_DB = config("DB_NAME")
+DJANGO_USER = config("DB_USER")

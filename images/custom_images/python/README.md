@@ -5,3 +5,6 @@ We have added a number of ways to run python apps. One of the apps is a mini Fla
 ## These Notes Were Helpful
 
 https://blog.logrocket.com/build-deploy-flask-app-using-docker/
+
+eval $(ssh-agent -s)
+ssh-add ~/.ssh/id_git_hub

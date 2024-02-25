@@ -9,6 +9,7 @@ RUN apt-get upgrade -y
 WORKDIR app/
 
 ENV DJANGO_DB $DJANGO_DB
+ENV DJANGO_USER $DJANGO_USER
 
 COPY . .
 

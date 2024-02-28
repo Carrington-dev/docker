@@ -106,7 +106,7 @@ DJANGO_DB = config("DB_NAME")
 DJANGO_USER = config("DB_USER")
 
 """
-docker run --name mysql_db -e MYSQL_ROOT_PASSWORD=#Mulalo96 -e MYSQL_DATABASE=vroomhive -e MYSQL_USER=carrie  -d mysql:latest --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+docker run --name mysql_db   -d -p 3306:3306 -p 33060:33060  -e MYSQL_ROOT_PASSWORD=#Mulalo96 -e MYSQL_DATABASE=vroomhive -e MYSQL_USER=carrie -e MYSQL_ROOT_HOST='%'  mysql:latest -v /run/mysqld/mysqld.sock:/run/mysqld/mysqld.sock
 
 docker run --name django_web -e DB_NAME=vroomhive -e DB_USER=carrie -e DB_HOST=localhost -e DB_PASSWORD=#Mulalo96 -e DB_PORT=3306 -d -p 80:8000 vroomy:0.0.1
 """
